@@ -1,52 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Huge Search</title>
+    <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="Assets/Styles.css">
     <link rel="stylesheet" href="Assets/normalize.css">
     <link rel="icon" type="image/png" href="Assets/huge-search-img-master/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.css" />
 </head>
+
 <body>
-   <main>
-       <form class="search" action="#" method="post" target="_blank">
-           <input type="search" name="Search" placeholder="Search..." required>
-           <input type="submit" name="submit" value="">
-       </form>
-       <section>
-       <nav>
-           <h2>PEOPLE</h2>
-           <ul>
-               <li><a href="http://twitter.com/SaraSoueidan"><img src="Assets/huge-search-img-master/img/avatars/SaraSoueidan.jpeg" alt=""><p>Sara Soueidan</p></a></li>
-               <li><a href="https://twitter.com/rachsmithtweets"><img src="Assets/huge-search-img-master/img/avatars/RachelSmith.png" alt=""><p>Rachel Smith</p></a></li>
-               <li><a href="http://www.twitter.com/peterfinlan"><img src="Assets/huge-search-img-master/img/avatars/PeterFinlan.jpeg" alt=""><p>Peter Finlan</p></a></li>
-               <li><a href="https://twitter.com/pcridesagain"><img src="Assets/huge-search-img-master/img/avatars/PatrickCox.png" alt=""><p>Patrick Cox</p></a></li>
-               <li><a href="https://twitter.com/twholman"><img src="Assets/huge-search-img-master/img/avatars/TimHolman.jpeg" alt=""><p>Tim Holman</p></a></li>
-               <li><a href="https://twitter.com/shaund0na"><img src="Assets/huge-search-img-master/img/avatars/ShaunDona.jpeg" alt=""><p>Shaun Dona</p></a></li>
-           </ul>
-       </nav>
-       <nav>
-           <h2>POPULAR</h2>
-           <ul>
-               <li><a href="https://tympanus.net/codrops/2014/08/05/page-preloading-effect/"><img src="Assets/huge-search-img-master/img/thumbs/PagePreloadingEffect.png" alt=""><p>Page Preloading Effect</p></a></li>
-               <li><a href="https://tympanus.net/codrops/2014/05/28/arrow-navigation-styles/"><img src="Assets/huge-search-img-master/img/thumbs/ArrowNavigationStyles.png" alt=""><p>Arrow Navigation Styles</p></a></li>
-               <li><a href="https://tympanus.net/codrops/2014/06/19/ideas-for-subtle-hover-effects/"><img src="Assets/huge-search-img-master/img/thumbs/HoverEffectsIdeasNew.png" alt=""><p>Ideas for Subtle Hover Effects</p></a></li>
-               <li><a href="https://tympanus.net/codrops/2014/07/14/freebie-halcyon-days-one-page-website-template/"><img src="Assets/huge-search-img-master/img/thumbs/FreebieHalcyonDays.png" alt=""><p>Halcyon Days Temlate</p></a></li>
-               <li><a href="http://tympanus.net/codrops/2014/05/22/inspiration-for-article-intro-effects/"><img src="Assets/huge-search-img-master/img/thumbs/ArticleIntroEffects.png" alt=""><p>Inspiration for Article Intro Effects</p></a></li>
-               <li><a href="http://tympanus.net/codrops/2014/06/26/draggable-dual-view-slideshow/"><img src="Assets/huge-search-img-master/img/thumbs/DraggableDualViewSlideshow.png" alt=""><p>Draggable Dual-View Slideshow</p></a></li>
-           </ul>
-       </nav><nav>
-           <h2>RECENT</h2>
-           <ul>
-               <li><a href="http://tympanus.net/codrops/2014/10/07/tooltip-styles-inspiration/"><img src="Assets/huge-search-img-master/img/thumbs/TooltipStylesInspiration.png" alt=""><p>Tooltip Styles Inspiration</p></a></li>
-               <li><a href="http://tympanus.net/codrops/2014/09/23/animated-backgba-circle-headers/"><img src="Assets/huge-search-img-master/img/thumbs/AnimatedHeaderBackgrounds.png" alt=""><p>Animated Backgba-circle Headers</p></a></li>
-               <li><a href="https://tympanus.net/codrops/2014/09/16/off-canvas-menu-effects/"><img src="Assets/huge-search-img-master/img/thumbs/OffCanvas.png" alt=""><p>Off-Canvas Menu Effects</p></a></li>
-               <li><a href="https://tympanus.net/codrops/2014/09/02/tab-styles-inspiration/"><img src="Assets/huge-search-img-master/img/thumbs/TabStyles.png" alt=""><p>Tab Styles Inspiration</p></a></li>
-               <li><a href="https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/"><img src="Assets/huge-search-img-master/img/thumbs/ResponsiveSVGs.png" alt=""><p>Make SVGs Responsive with CSS</p></a></li>
-               <li><a href="https://tympanus.net/codrops/2014/07/23/notification-styles-inspiration/"><img src="Assets/huge-search-img-master/img/thumbs/NotificationStyles.png" alt=""><p>Notification Styles Inspiration</p></a></li>
-           </ul>
-       </nav>
-       </section>
-   </main>  
+    <main>
+        <form class="search">
+            <input id="search_field" type="search" name="Search" placeholder="Search..." required>
+            <input id="submit_button" type="button" name="submit" value="">
+        </form>
+        <div class="shuffle_div">
+            <button id="shuffle" class="shuffle">Shuffle</button>
+        </div>
+        <section>
+            <nav>
+                <h2>PEOPLE</h2>
+                <ul>
+                    <li>
+                        <a href="http://twitter.com/SaraSoueidan" data-fancybox="people"><img src="Assets/huge-search-img-master/img/avatars/SaraSoueidan.jpeg" alt="">
+                            <p>Sara Soueidan</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/rachsmithtweets" data-fancybox="people"><img src="Assets/huge-search-img-master/img/avatars/RachelSmith.png" alt="">
+                            <p>Rachel Smith</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.twitter.com/peterfinlan" data-fancybox="people"><img src="Assets/huge-search-img-master/img/avatars/PeterFinlan.jpeg" alt="">
+                            <p>Peter Finlan</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/pcridesagain" data-fancybox="people"><img src="Assets/huge-search-img-master/img/avatars/PatrickCox.png" alt="">
+                            <p>Patrick Cox</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/twholman" data-fancybox="people"><img src="Assets/huge-search-img-master/img/avatars/TimHolman.jpeg" alt="">
+                            <p>Tim Holman</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/shaund0na" data-fancybox="people"><img src="Assets/huge-search-img-master/img/avatars/ShaunDona.jpeg" alt="">
+                            <p>Shaun Dona</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <nav>
+                <h2>POPULAR</h2>
+                <ul>
+                    <li>
+                        <a href="https://tympanus.net/codrops/2014/08/05/page-preloading-effect/" data-fancybox="popular"><img src="Assets/huge-search-img-master/img/thumbs/PagePreloadingEffect.png" alt="">
+                            <p>Page Preloading Effect</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tympanus.net/codrops/2014/05/28/arrow-navigation-styles/" data-fancybox="popular"><img src="Assets/huge-search-img-master/img/thumbs/ArrowNavigationStyles.png" alt="">
+                            <p>Arrow Navigation Styles</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tympanus.net/codrops/2014/06/19/ideas-for-subtle-hover-effects/" data-fancybox="popular"><img src="Assets/huge-search-img-master/img/thumbs/HoverEffectsIdeasNew.png" alt="">
+                            <p>Ideas for Subtle Hover Effects</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tympanus.net/codrops/2014/07/14/freebie-halcyon-days-one-page-website-template/" data-fancybox="popular"><img src="Assets/huge-search-img-master/img/thumbs/FreebieHalcyonDays.png" alt="">
+                            <p>Halcyon Days Temlate</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://tympanus.net/codrops/2014/05/22/inspiration-for-article-intro-effects/" data-fancybox="popular"><img src="Assets/huge-search-img-master/img/thumbs/ArticleIntroEffects.png" alt="">
+                            <p>Inspiration for Article Intro Effects</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://tympanus.net/codrops/2014/06/26/draggable-dual-view-slideshow/" data-fancybox="popular"><img src="Assets/huge-search-img-master/img/thumbs/DraggableDualViewSlideshow.png" alt="">
+                            <p>Draggable Dual-View Slideshow</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <nav>
+                <h2>RECENT</h2>
+                <ul>
+                    <li>
+                        <a href="http://tympanus.net/codrops/2014/10/07/tooltip-styles-inspiration/" data-fancybox="recent"><img src="Assets/huge-search-img-master/img/thumbs/TooltipStylesInspiration.png" alt="">
+                            <p>Tooltip Styles Inspiration</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://tympanus.net/codrops/2014/09/23/animated-backgba-circle-headers/" data-fancybox="recent"><img src="Assets/huge-search-img-master/img/thumbs/AnimatedHeaderBackgrounds.png" alt="">
+                            <p>Animated Backgba-circle Headers</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tympanus.net/codrops/2014/09/16/off-canvas-menu-effects/" data-fancybox="recent"><img src="Assets/huge-search-img-master/img/thumbs/OffCanvas.png" alt="">
+                            <p>Off-Canvas Menu Effects</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tympanus.net/codrops/2014/09/02/tab-styles-inspiration/" data-fancybox="recent"><img src="Assets/huge-search-img-master/img/thumbs/TabStyles.png" alt="">
+                            <p>Tab Styles Inspiration</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tympanus.net/codrops/2014/08/19/making-svgs-responsive-with-css/" data-fancybox="recent"><img src="Assets/huge-search-img-master/img/thumbs/ResponsiveSVGs.png" alt="">
+                            <p>Make SVGs Responsive with CSS</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://tympanus.net/codrops/2014/07/23/notification-styles-inspiration/" data-fancybox="recent"><img src="Assets/huge-search-img-master/img/thumbs/NotificationStyles.png" alt="">
+                            <p>Notification Styles Inspiration</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            
+            $("[data-fancybox]").fancybox({
+                iframe : {
+                    scrolling : 'yes',
+                    css : {
+                        width : '600px',
+                        height : '700px',
+                    }
+                },
+                speed : 1000,
+            });
+
+            
+            $("#shuffle").on("click", function() {
+                var list = $("ul");
+                return list.each(function() {
+                    var elems = $(this).children();
+                    elems.detach();
+                    elems.sort(function() {
+                        return (Math.random() - 0.5);
+                    });
+                    for (var i = 0; i < elems.length; i++)
+                        $(this).append(elems[i]);
+                });
+            });
+
+            $("#submit_button").click( function() {
+                var searchResult = $("#search_field").val();
+                $("li:contains(" + searchResult + ")").css("background", "#fdfc9c").attr("counter", ++counter);
+                
+                
+                    li = $("li"),
+                    counter = li.attr("counter") !== undefined ? li.attr("counter") : 0;
+                    noResultElem = $("<p></p>").text("Sorry, try searching for " + "'" + searchResult + "'" + " on Google").addClass("error_class");
+                
+                li.each(function() {
+                    if ($(this).attr("counter") > 3) {
+                        $(this).css("background", "#ffdc4c");
+                    };
+                });
+
+                if ($("li").index(searchResult) == -1) {
+                    $("form").append(noResultElem);  
+                }
+            });
+        });
+
+    </script>
+
 </body>
+
 </html>
