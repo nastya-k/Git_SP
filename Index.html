@@ -14,7 +14,7 @@
 <body>
     <main>
         <form class="search">
-            <input id="search_field" type="search" name="Search" placeholder="Search..." required>
+            <input class="typeahead" id="search_field" type="search" name="Search" placeholder="Search..." required>
             <input id="submit_button" type="button" name="submit" value="">
         </form>
         <div class="shuffle_div">
@@ -130,58 +130,8 @@
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.0.47/jquery.fancybox.min.js"></script>
-    
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            
-            $("[data-fancybox]").fancybox({
-                iframe : {
-                    scrolling : 'yes',
-                    css : {
-                        width : '600px',
-                        height : '700px',
-                    }
-                },
-                speed : 1000,
-            });
-
-            
-            $("#shuffle").on("click", function() {
-                var list = $("ul");
-                return list.each(function() {
-                    var elems = $(this).children();
-                    elems.detach();
-                    elems.sort(function() {
-                        return (Math.random() - 0.5);
-                    });
-                    for (var i = 0; i < elems.length; i++)
-                        $(this).append(elems[i]);
-                });
-            });
-
-            $("#submit_button").click( function() {
-                var searchResult = $("#search_field").val();
-                $("li:contains(" + searchResult + ")").css("background", "#fdfc9c").attr("counter", ++counter);
-                
-                
-                    li = $("li"),
-                    counter = li.attr("counter") !== undefined ? li.attr("counter") : 0;
-                    noResultElem = $("<p></p>").text("Sorry, try searching for " + "'" + searchResult + "'" + " on Google").addClass("error_class");
-                
-                li.each(function() {
-                    if ($(this).attr("counter") > 3) {
-                        $(this).css("background", "#ffdc4c");
-                    };
-                });
-
-                if ($("li").index(searchResult) == -1) {
-                    $("form").append(noResultElem);  
-                }
-            });
-        });
-
-    </script>
+    <script src="typeahead.bundle.js"></script>
+    <script src="scripts.js"></script>
 
 </body>
 

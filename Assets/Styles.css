@@ -13,7 +13,7 @@ body {
 }
 
 
-input[type="search"]{
+#search_field {
     height: 80%;
     width: 85%;
     background-color: #F1F1F1;
@@ -25,7 +25,7 @@ input[type="search"]{
     color: #ec5a62;
 }
 
-input[type="submit"] {
+#submit_button {
     background: url(huge-search-img-master/img/magnifier.svg);
     border: none;
     width: 90px;
@@ -34,7 +34,8 @@ input[type="submit"] {
 }
 
 
- input[type="submit"]:hover {
+ 
+#submit_button:hover {
  -webkit-transform: scale(1.1);
  -moz-transform: scale(1.1);
  -o-transform: scale(1.1);
@@ -42,9 +43,19 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-input[type="submit"]:not(:hover) {
+
+#submit_button:not(:hover) {
   transition: 0.5s;
 } 
+
+.shuffle_div {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    margin: auto;
+    padding-right: 50px;
+}
+
 
 /*---------Main-------------*/
 
@@ -112,4 +123,32 @@ li:hover {
  
 li:hover p{
     color:#ec5a62;
+}
+
+.error_class {
+   font-size: 18px;
+    color: #38c4ce;
+    border: solid 1px;
+    padding: 10px;
+    display: block;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.highlight {
+ background-color: #fdfc9c;
+}
+
+.twitter-typeahead {
+    width: 85%;
+}
+
+.tt-menu {
+    color: #695b5b;
+    font-size: 20px;
+    background-color: #ffe4e4;
+    opacity: 0.7;
+    padding: 5px;
+    border: 1px solid #695b5b;
+    cursor: pointer;
 }
